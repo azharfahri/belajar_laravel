@@ -114,3 +114,11 @@ route::get('/latihan/{nama}/{telepon}/{jenis}/{barang}/{jumlah}/{pembayaran}', f
     "Potongan :". number_format($potongan) . "<br>" . 
     "Total Pembayaran :" . number_format($totalbayar)  ;
 });
+
+
+
+route::get('/siswa',function (){
+    $data_siswa = ['Pari','Keyndra','Raisa','Kiki','Azhar','Agus'];
+    return view('tampil',compact('data_siswa'));
+}
+);
