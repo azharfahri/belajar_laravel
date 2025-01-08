@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostsController;
+use App\Models\Barang;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -122,3 +125,16 @@ route::get('/siswa',function (){
     return view('tampil',compact('data_siswa'));
 }
 );
+
+route::get('/post',[PostsController::class, 'menampilkan']);
+
+route::get('/barang',[PostsController::class, 'barang']);
+
+// route::get('/barang',function (){
+//     $barang = Barang::where('nama_barang','like','%Laptop%')->get();
+//     return view('barang',compact('barang'));
+// }
+// );
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
