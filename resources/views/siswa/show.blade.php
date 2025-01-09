@@ -21,8 +21,8 @@
                             </div>
                             <div class="mb-3">
                             <label class="form-label">Jenis Kelamin</label><br>
-                            <input type="radio" class="form-check-input" name="jeniskelamin" value="Laki - laki" checked > Laki-laki
-                            <input type="radio" class="form-check-input" name="jeniskelamin" value="Perempuan" checked > Perempuan 
+                            <input type="radio" class="form-check-input" name="jeniskelamin" value="Laki - laki"  disabled > Laki-laki
+                            <input type="radio" class="form-check-input" name="jeniskelamin" value="Perempuan"  disabled > Perempuan 
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Kelas</label>
