@@ -30,9 +30,10 @@
                             <td>{{ $data->jenis_kelamin }}</td>
                             <td>{{ $data->kelas }}</td>
                             <td>
+                                <form action="{{ route('siswa.destroy',$data->id) }}" method="POST">
                                 <a href="{{ route('siswa.edit',$data->id) }}" type="button" class="btn btn-success">Edit</a>
                                 <a href="{{ route('siswa.show',$data->id) }}" type="button" class="btn btn-warning">show</a>
-                                <form action="{{ route('siswa.destroy',$data->id) }}" method="POST">
+                                
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah anda yakin?')">Delete</button>
