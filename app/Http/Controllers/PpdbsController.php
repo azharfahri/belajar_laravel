@@ -3,15 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Siswa;
+use App\Models\ppdb;
 
-class SiswasController extends Controller
+class PpdbsController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
-     * 
      */
     public function __construct()
     {
@@ -19,8 +18,8 @@ class SiswasController extends Controller
     }
     public function index()
     {
-        $siswa = Siswa::all();
-        return view('siswa.index', compact('siswa'));
+        $ppdb = ppdb::all();
+        return view('ppdb.index', compact('ppdb'));
     }
 
     /**
@@ -30,7 +29,7 @@ class SiswasController extends Controller
      */
     public function create()
     {
-        return view('siswa.create');
+        return view('ppdb.create');
     }
 
     /**
@@ -41,14 +40,16 @@ class SiswasController extends Controller
      */
     public function store(Request $request)
     {
-        $siswa = new Siswa;
-        $siswa->nis = $request->nis ;
-        $siswa->nama = $request->nama ;
-        $siswa->jenis_kelamin = $request->jeniskelamin ;
-        $siswa->kelas = $request->kelas ;
-        $siswa->save();
+        $ppdb = new Ppdb;
+        $ppdb->nama_lengkap = $request->nama ;
+        $ppdb->jenis_kelamin = $request->jeniskelamin ;
+        $ppdb->agama = $request->agama ;
+        $ppdb->alamat = $request->alamat ;
+        $ppdb->telepon = $request->telepon ;
+        $ppdb->asal_sekolah = $request->asalsekolah ;
+        $ppdb->save();
 
-        return redirect()->route('siswa.index')->with('success','Data Berhasil Ditambahkan');
+        return redirect()->route('ppdb.index')->with('success','Data Berhasil Ditambahkan');
     }
 
     /**
@@ -59,8 +60,8 @@ class SiswasController extends Controller
      */
     public function show($id)
     {
-        $siswa =Siswa::FindOrFail($id);
-        return view('siswa.show', compact('siswa'));
+        $ppdb =ppdb::FindOrFail($id);
+        return view('ppdb.show', compact('ppdb'));
     }
 
     /**
@@ -71,8 +72,8 @@ class SiswasController extends Controller
      */
     public function edit($id)
     {
-        $siswa =Siswa::FindOrFail($id);
-        return view('siswa.edit', compact('siswa'));
+        $ppdb =ppdb::FindOrFail($id);
+        return view('ppdb.edit', compact('ppdb'));
     }
 
     /**
@@ -84,14 +85,16 @@ class SiswasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $siswa = Siswa::findOrFail($id);
-        $siswa->nis = $request->nis ;
-        $siswa->nama = $request->nama ;
-        $siswa->jenis_kelamin = $request->jeniskelamin ;
-        $siswa->kelas = $request->kelas ;
-        $siswa->save();
+        $ppdb = ppdb::findorfail($id);
+        $ppdb->nama_lengkap = $request->nama ;
+        $ppdb->jenis_kelamin = $request->jeniskelamin ;
+        $ppdb->agama = $request->agama ;
+        $ppdb->alamat = $request->alamat ;
+        $ppdb->telepon = $request->telepon ;
+        $ppdb->asal_sekolah = $request->asalsekolah ;
+        $ppdb->save();
 
-        return redirect()->route('siswa.index')->with('success','Data Berhasil Dirubah');
+        return redirect()->route('ppdb.index')->with('success','Data Berhasil Diperbaharui');
     }
 
     /**
@@ -102,8 +105,8 @@ class SiswasController extends Controller
      */
     public function destroy($id)
     {
-        $siswa = Siswa::findOrFail($id);
-        $siswa->delete();
-        return redirect()->route('siswa.index')->with('success','Data Berhasil Dihapus');
+        $ppdb = ppdb::findOrFail($id);
+        $ppdb->delete();
+        return redirect()->route('ppdb.index')->with('success','Data Berhasil Dihapus');
     }
 }
