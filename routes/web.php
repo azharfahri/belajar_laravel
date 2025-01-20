@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\PpdbsController;
 use App\Http\Controllers\SiswasController;
+use App\Http\Controllers\PenggunaController;
 use App\Models\Barang;
 
 
@@ -135,6 +136,8 @@ route::get('/barang',[PostsController::class, 'barang']);
 Route::resource('siswa', SiswasController::class);
 
 Route::resource('ppdb', PpdbsController::class);
+
+Route::resource('pengguna', PenggunaController::class);
 
 // route::get('/barang',function (){
 //     $barang = Barang::where('nama_barang','like','%Laptop%')->get();
