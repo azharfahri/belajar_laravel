@@ -3,23 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\pengguna;
+use App\Models\Kategori;
 
-class PenggunaController extends Controller
+class KategoriController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
     public function index()
     {
-        $pengguna = pengguna::all();
-        return view('pengguna.index', compact('pengguna'));
+        $kategori = kategori::all();
+        return view('kategori.index', compact('kategori'));
     }
 
     /**
@@ -29,7 +25,7 @@ class PenggunaController extends Controller
      */
     public function create()
     {
-        return view('pengguna.create');
+        return view('kategori.create');
     }
 
     /**
@@ -40,11 +36,11 @@ class PenggunaController extends Controller
      */
     public function store(Request $request)
     {
-        $pengguna = new pengguna();
-        $pengguna->nama = $request->nama ;
-        $pengguna->save();
+        $kategori = new kategori();
+        $kategori->nama_kategori = $request->nama_kategori ;
+        $kategori->save();
 
-        return redirect()->route('pengguna.index')->with('success','Data Berhasil Ditambahkan');
+        return redirect()->route('kategori.index')->with('success','Data Berhasil Ditambahkan');
     }
 
     /**
@@ -55,8 +51,8 @@ class PenggunaController extends Controller
      */
     public function show($id)
     {
-        $pengguna =pengguna::FindOrFail($id);
-        return view('pengguna.show', compact('pengguna'));
+        $kategori =kategori::FindOrFail($id);
+        return view('kategori.show', compact('kategori'));
     }
 
     /**
@@ -67,8 +63,8 @@ class PenggunaController extends Controller
      */
     public function edit($id)
     {
-        $pengguna =pengguna::FindOrFail($id);
-        return view('pengguna.edit', compact('pengguna'));
+        $kategori =kategori::FindOrFail($id);
+        return view('kategori.edit', compact('kategori'));
     }
 
     /**
@@ -80,11 +76,11 @@ class PenggunaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $pengguna = pengguna::findOrFail($id);
-        $pengguna->nama = $request->nama ;
-        $pengguna->save();
+        $kategori = kategori::findOrFail($id);
+        $kategori->nama_kategori = $request->nama_kategori ;
+        $kategori->save();
 
-        return redirect()->route('pengguna.index')->with('success','Data Berhasil Dirubah');
+        return redirect()->route('kategori.index')->with('success','Data Berhasil Dirubah');
     }
 
     /**
@@ -95,8 +91,8 @@ class PenggunaController extends Controller
      */
     public function destroy($id)
     {
-        $pengguna = pengguna::findOrFail($id);
-        $pengguna->delete();
-        return redirect()->route('pengguna.index')->with('success','Data Berhasil Dihapus');
+        $kategori = kategori::findOrFail($id);
+        $kategori->delete();
+        return redirect()->route('kategori.index')->with('success','Data Berhasil Dihapus');
     }
 }

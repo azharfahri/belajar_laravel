@@ -3,23 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Telepon;
 use App\Models\pengguna;
 
-class PenggunaController extends Controller
+class TeleponController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
     public function index()
     {
-        $pengguna = pengguna::all();
-        return view('pengguna.index', compact('pengguna'));
+        $telepon = telepon::all();
+        return view('telepon.index', compact('telepon'));
     }
 
     /**
@@ -29,7 +26,8 @@ class PenggunaController extends Controller
      */
     public function create()
     {
-        return view('pengguna.create');
+        $pengguna = pengguna::all();
+        return view('telepon.create', compact('pengguna'));
     }
 
     /**
@@ -40,11 +38,12 @@ class PenggunaController extends Controller
      */
     public function store(Request $request)
     {
-        $pengguna = new pengguna();
-        $pengguna->nama = $request->nama ;
-        $pengguna->save();
+        $telepon = new Telepon();
+        $telepon->nomor = $request->nomor ;
+        $telepon->id_pengguna = $request->id_pengguna;
+        $telepon->save();
 
-        return redirect()->route('pengguna.index')->with('success','Data Berhasil Ditambahkan');
+        return redirect()->route('telepon.index')->with('success','Data Berhasil Ditambahkan');
     }
 
     /**
@@ -55,8 +54,9 @@ class PenggunaController extends Controller
      */
     public function show($id)
     {
-        $pengguna =pengguna::FindOrFail($id);
-        return view('pengguna.show', compact('pengguna'));
+        $telepon =telepon::FindOrFail($id);
+        $pengguna = pengguna::all();
+        return view('telepon.show', compact('telepon','pengguna'));
     }
 
     /**
@@ -67,8 +67,9 @@ class PenggunaController extends Controller
      */
     public function edit($id)
     {
-        $pengguna =pengguna::FindOrFail($id);
-        return view('pengguna.edit', compact('pengguna'));
+        $telepon =telepon::FindOrFail($id);
+        $pengguna = pengguna::all();
+        return view('telepon.edit', compact('telepon','pengguna'));
     }
 
     /**
@@ -80,11 +81,12 @@ class PenggunaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $pengguna = pengguna::findOrFail($id);
-        $pengguna->nama = $request->nama ;
-        $pengguna->save();
+        $telepon = telepon::findOrFail($id);
+        $telepon->nomor = $request->nomor ;
+        $telepon->id_pengguna = $request->id_pengguna ;
+        $telepon->save();
 
-        return redirect()->route('pengguna.index')->with('success','Data Berhasil Dirubah');
+        return redirect()->route('telepon.index')->with('success','Data Berhasil Dirubah');
     }
 
     /**
@@ -95,8 +97,8 @@ class PenggunaController extends Controller
      */
     public function destroy($id)
     {
-        $pengguna = pengguna::findOrFail($id);
-        $pengguna->delete();
-        return redirect()->route('pengguna.index')->with('success','Data Berhasil Dihapus');
+        $telepon = Telepon::findOrFail($id);
+        $telepon->delete();
+        return redirect()->route('telepon.index')->with('success','Data Berhasil Dihapus');
     }
 }
