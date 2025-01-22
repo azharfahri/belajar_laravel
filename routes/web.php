@@ -1,11 +1,14 @@
 <?php
 
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\PpdbsController;
 use App\Http\Controllers\SiswasController;
 use App\Http\Controllers\PenggunaController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\TeleponController;
 use App\Models\Barang;
@@ -147,6 +150,12 @@ Route::resource('telepon', TeleponController::class);
 Route::resource('kategori', KategoriController::class);
 
 Route::resource('produk', ProdukController::class);
+
+Route::resource('product', ProductController::class);
+
+Route::resource('customer', CustomerController::class);
+
+Route::resource('order', OrderController::class);
 
 // route::get('/barang',function (){
 //     $barang = Barang::where('nama_barang','like','%Laptop%')->get();

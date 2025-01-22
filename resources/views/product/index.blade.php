@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Data Produk</div>
+                <div class="card-header">Data Product</div>
 
                 <div class="card-body">
                     @if (session('success'))
@@ -14,35 +14,35 @@
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 @endif
-                <a href="{{ route('produk.create') }}" type="button" class="btn btn-primary">Add</a>
+                <a href="{{ route('product.create') }}" type="button" class="btn btn-primary">Add</a>
                     <table class="table">
                         <thead>
                           <tr>
                             <th scope="col">No</th>
-                            <th scope="col">Nama produk</th>
-                            <th scope="col">Harga</th>
-                            <th scope="col">Stok</th>
-                            <th scope="col">Kategori</th>
+                            <th scope="col">Name product</th>
+                            <th scope="col">Brand</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Stock</th>
                             <th scope="col">Action</th>
                           </tr>
                         </thead>
                         <tbody>
                             @php $no = 1; @endphp
-                            @foreach ($produk as $data)
+                            @foreach ($product as $data)
                             <tr>
                             <th scope="row">{{ $no++ }}</th>
-                            <td>{{ $data->nama_produk }}</td>
-                            <td>Rp.{{ $data->harga }}</td>
-                            <td>{{ $data->stok }}</td>
-                            <td>{{ $data->kategori->nama_kategori }}</td>
+                            <td>{{ $data->name_product }}</td>
+                            <td>{{ $data->merk }}</td>
+                            <td>{{ $data->price }}</td>
+                            <td>{{ $data->stock }}</td>
                             <td>
-                                <form action="{{ route('produk.destroy',$data->id) }}" method="POST">
-                                <a href="{{ route('produk.edit',$data->id) }}" type="button" class="btn btn-success">Edit</a>
-                                <a href="{{ route('produk.show',$data->id) }}" type="button" class="btn btn-warning">Show</a>
+                                <form action="{{ route('product.destroy',$data->id) }}" method="POST">
+                                <a href="{{ route('product.edit',$data->id) }}" type="button" class="btn btn-success">Edit</a>
+                                <a href="{{ route('product.show',$data->id) }}" type="button" class="btn btn-warning">Show</a>
                                 
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah anda yakin?')">Delete</button>
+                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Are You Sure?')">Delete</button>
                                 </form>
                             </td>
                         </tr>
