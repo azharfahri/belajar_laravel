@@ -35,6 +35,11 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name_customer' => 'required',
+            'gender' => 'required',
+            'contact' => 'required',
+        ]);
         $customer = new customer();
         $customer->name_customer = $request->name_customer ;
         $customer->gender = $request->gender ;
@@ -77,6 +82,11 @@ class CustomerController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'name_customer' => 'required',
+            'gender' => 'required',
+            'contact' => 'required',
+        ]);
         $customer = customer::findOrFail($id);
         $customer->name_customer = $request->name_customer ;
         $customer->gender = $request->gender ;

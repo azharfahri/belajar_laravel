@@ -33,6 +33,11 @@
                                     <option value="XI RPL 3">XI RPL 3</option>
                                 </select>
                             </div>
+                            <div class="mb-3">
+                                <label class="form-label">Cover</label>
+                                <img src="{{ asset('/images/siswa/' . $siswa->cover) }}" width="100">
+                                <input type="file" class="form-control" name="cover">
+                            </div>
                             <button type="submit" class="btn btn-primary">Simpan</button>
                         </form>
                 </div>

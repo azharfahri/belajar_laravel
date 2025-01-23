@@ -32,6 +32,10 @@
                                     <option value="XI RPL 3">XI RPL 3</option>
                                 </select>
                             </div>
+                            <div class="mb-3">
+                                <label class="form-label">Image</label>
+                                <input type="file" name="cover" class="form-control" required>
+                            </div>
                             <button type="submit" class="btn btn-primary">Simpan</button>
                         </form>
                 </div>

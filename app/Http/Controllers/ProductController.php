@@ -35,6 +35,12 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name_product' => 'required',
+            'merk' => 'required',
+            'price' => 'required',
+            'stock' => 'required',
+        ]);
         $product = new Product();
         $product->name_product = $request->name_product ;
         $product->merk = $request->merk ;
@@ -78,6 +84,12 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'name_product' => 'required',
+            'merk' => 'required',
+            'price' => 'required',
+            'stock' => 'required',
+        ]);
         $product = product::findOrFail($id);
         $product->name_product = $request->name_product ;
         $product->merk = $request->merk ;

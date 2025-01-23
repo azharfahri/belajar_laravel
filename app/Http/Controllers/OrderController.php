@@ -39,6 +39,12 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'id_product' => 'required',
+            'quantity' => 'required',
+            'order_date' => 'required',
+            'id_customer' => 'required',
+        ]);
         $order = new Order();
         $order->id_product = $request->id_product ;
         $order->quantity = $request->quantity ;
@@ -86,6 +92,12 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'id_product' => 'required',
+            'quantity' => 'required',
+            'order_date' => 'required',
+            'id_customer' => 'required',
+        ]);
         $order = order::findOrFail($id);
         $order->id_product = $request->id_product ;
         $order->quantity = $request->quantity ;

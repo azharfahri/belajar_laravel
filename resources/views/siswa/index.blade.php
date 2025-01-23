@@ -36,6 +36,9 @@
                             <td>{{ $data->jenis_kelamin }}</td>
                             <td>{{ $data->kelas }}</td>
                             <td>
+                                <img src="{{ asset('/images/siswa/' . $data->cover) }}" width="100">
+                            </td>
+                            <td>
                                 <form action="{{ route('siswa.destroy',$data->id) }}" method="POST">
                                 <a href="{{ route('siswa.edit',$data->id) }}" type="button" class="btn btn-success">Edit</a>
                                 <a href="{{ route('siswa.show',$data->id) }}" type="button" class="btn btn-warning">show</a>

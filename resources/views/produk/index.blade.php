@@ -36,6 +36,9 @@
                             <td>{{ $data->stok }}</td>
                             <td>{{ $data->kategori->nama_kategori }}</td>
                             <td>
+                                <img src="{{ asset('/images/produk/' . $data->cover) }}" width="100">
+                            </td>
+                            <td>
                                 <form action="{{ route('produk.destroy',$data->id) }}" method="POST">
                                 <a href="{{ route('produk.edit',$data->id) }}" type="button" class="btn btn-success">Edit</a>
                                 <a href="{{ route('produk.show',$data->id) }}" type="button" class="btn btn-warning">Show</a>

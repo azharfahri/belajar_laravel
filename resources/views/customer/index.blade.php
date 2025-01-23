@@ -17,13 +17,13 @@
                 <a href="{{ route('customer.create') }}" type="button" class="btn btn-primary">Add</a>
                     <table class="table">
                         <thead>
-                          <tr>
+                        <tr>
                             <th scope="col">No</th>
                             <th scope="col">Name Customer</th>
                             <th scope="col">Gender</th>
                             <th scope="col">Contact</th>
                             <th scope="col">Action</th>
-                          </tr>
+                        </tr>
                         </thead>
                         <tbody>
                             @php $no = 1; @endphp
