@@ -1,8 +1,12 @@
 <?php
 
+use App\Http\Controllers\BukuController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\GenreController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PembeliController;
+use App\Http\Controllers\PenerbitController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\PpdbsController;
@@ -11,6 +15,7 @@ use App\Http\Controllers\PenggunaController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\TeleponController;
+use App\Http\Controllers\TransaksiController;
 use App\Models\Barang;
 
 
@@ -156,6 +161,16 @@ Route::resource('product', ProductController::class);
 Route::resource('customer', CustomerController::class);
 
 Route::resource('order', OrderController::class);
+
+Route::resource('penerbit', PenerbitController::class);
+
+Route::resource('genre', GenreController::class);
+
+Route::resource('buku', BukuController::class);
+
+Route::resource('pembeli', PembeliController::class);
+
+Route::resource('transaksi', TransaksiController::class);
 
 // route::get('/barang',function (){
 //     $barang = Barang::where('nama_barang','like','%Laptop%')->get();
