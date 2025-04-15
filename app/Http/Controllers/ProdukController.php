@@ -38,6 +38,13 @@ class ProdukController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nama_produk' => 'required',
+            'harga' => 'required',
+            'stok' => 'required',
+            'id_kategori' => 'required',
+            'cover' => 'required',
+        ]);
         $produk = new produk();
         $produk->nama_produk = $request->nama_produk ;
         $produk->harga = $request->harga ;
@@ -89,6 +96,13 @@ class ProdukController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'nama_produk' => 'required',
+            'harga' => 'required',
+            'stok' => 'required',
+            'id_kategori' => 'required',
+            'cover' => 'required',
+        ]);
         $produk = produk::findOrFail($id);
         $produk->nama_produk = $request->nama_produk ;
         $produk->harga = $request->harga ;
