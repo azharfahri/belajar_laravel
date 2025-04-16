@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BukuController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\FrontController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\OrderController;
@@ -30,9 +31,9 @@ use App\Models\Barang;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 route::get('/home',function (){
     return 'Selamat Datang Di Halaman Homep';
@@ -140,6 +141,10 @@ route::get('/siswa',function (){
 }
 );
 
+route::get('/',[FrontController::class, 'index']);
+
+Route::resource('lihat', FrontController::class);
+
 route::get('/post',[PostsController::class, 'menampilkan']);
 
 route::get('/barang',[PostsController::class, 'barang']);
@@ -171,6 +176,8 @@ Route::resource('buku', BukuController::class);
 Route::resource('pembeli', PembeliController::class);
 
 Route::resource('transaksi', TransaksiController::class);
+
+
 
 // route::get('/barang',function (){
 //     $barang = Barang::where('nama_barang','like','%Laptop%')->get();

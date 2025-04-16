@@ -88,6 +88,7 @@
                                                     <th scope="col">Harga</th>
                                                     <th scope="col">Stok</th>
                                                     <th scope="col">Kategori</th>
+                                                    <th scope="col">Cover</th>
                                                     <th scope="col">Action</th>
                                                 </tr>
                                             </thead>

@@ -73,6 +73,7 @@ class ProdukController extends Controller
         $kategori = kategori::all();
         return view('produk.show', compact('produk','kategori'));
     }
+    
 
     /**
      * Show the form for editing the specified resource.
