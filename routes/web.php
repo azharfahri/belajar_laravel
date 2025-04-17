@@ -17,6 +17,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\TeleponController;
 use App\Http\Controllers\TransaksiController;
+use App\Http\Middleware\isAdmin;
 use App\Models\Barang;
 
 
@@ -135,7 +136,15 @@ route::get('/latihan/{nama}/{telepon}/{jenis}/{barang}/{jumlah}/{pembayaran}', f
 
 
 
-route::get('/siswa',function (){
+
+
+Route::prefix('admin')->middleware('auth',isAdmin::class)->group(function(){
+    Route::resource('kategori', KategoriController::class);
+    Route::resource('produk', ProdukController::class);
+    Route::resource('siswa', SiswasController::class);
+});
+
+route::get('/siswa1',function (){
     $data_siswa = ['Pari','Keyndra','Raisa','Kiki','Azhar','Agus'];
     return view('tampil',compact('data_siswa'));
 }
@@ -149,7 +158,7 @@ route::get('/post',[PostsController::class, 'menampilkan']);
 
 route::get('/barang',[PostsController::class, 'barang']);
 
-Route::resource('siswa', SiswasController::class);
+
 
 Route::resource('ppdb', PpdbsController::class);
 
@@ -157,9 +166,7 @@ Route::resource('pengguna', PenggunaController::class);
 
 Route::resource('telepon', TeleponController::class);
 
-Route::resource('kategori', KategoriController::class);
 
-Route::resource('produk', ProdukController::class);
 
 Route::resource('product', ProductController::class);
 

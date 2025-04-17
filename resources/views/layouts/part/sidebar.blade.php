@@ -16,7 +16,7 @@
             <li>
                 <a href="{{ route('home') }}" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
             </li>
-            
+            @if(Auth::user()->is_admin === 1)
             <li>
                 <a href="{{ route('siswa.index') }}"><i class="fa fa-edit fa-fw"></i> Siswa</a>
             </li>
@@ -30,7 +30,7 @@
             </li>
             
             
-            
+            @endif
         </ul>
     </div>
     
