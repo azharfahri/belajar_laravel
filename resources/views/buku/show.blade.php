@@ -10,7 +10,7 @@
                 <div class="card-body">
                         <form action="{{ route('buku.show', $buku->id) }}" method="POST" enctype="multipart/form-data">
                             @csrf
-                            
+
                             <div class="mb-3">
                                 <label class="form-label">Nama buku</label>
                                 <input type="text" placeholder="Masukan Nama buku" name="nama_buku" value="{{ $buku->nama_buku }}" disabled class="form-control">
@@ -26,7 +26,6 @@
                                 <div class="mb-3">
                                     <label class="form-label">Cover</label>
                                     <img src="{{ asset('/images/buku/' . $buku->cover) }}" width="100">
-                                    
                                 </div>
                             <div class="mb-3">
                                 <label class="form-label">Penerbit</label>
@@ -49,7 +48,7 @@
                                 </select>
                             </div>
                             <a href="{{ route('buku.index') }}" class="btn btn-danger">Back</a>
-                            
+
                         </form>
                 </div>
             </div>

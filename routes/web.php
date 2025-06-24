@@ -9,6 +9,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PembeliController;
 use App\Http\Controllers\PenerbitController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\PpdbsController;
 use App\Http\Controllers\SiswasController;
@@ -52,11 +53,11 @@ route::get('/contact',function (){
 );
 
 route::get('/tes/{nama}/{lahir}/{jk}/{agama}/{alamat}', function($nama,$tgllahir,$jk,$agama,$alamat){
-    return "Nama : ". $nama . 
-    "<br>Tanggal lahir : " . $tgllahir. 
+    return "Nama : ". $nama .
+    "<br>Tanggal lahir : " . $tgllahir.
     "<br>Jenis Kelamin : " . $jk.
     "<br>Agama : " . $agama.
-    "<br>Alamat : " . $alamat;   
+    "<br>Alamat : " . $alamat;
 }
 );
 
@@ -64,7 +65,7 @@ route::get('/hitung/{bil1}/{bil2}', function($bil1,$bil2){
     $hasil = $bil1 + $bil2;
     return "Bilangan 1 :". $bil1.
     "<br>Bilangan 2 :" . $bil2.
-    "<br>Hasil :". $hasil; 
+    "<br>Hasil :". $hasil;
 }
 );
 
@@ -80,7 +81,7 @@ route::get('/latihan/{nama}/{telepon}/{jenis}/{barang}/{jumlah}/{pembayaran}', f
                 $harga = 15000000;
             }
         }
-        
+
         elseif ($jenis == "laptop") {
             if ($namabarang == "lenovo") {
                 $harga = 4000000;
@@ -90,8 +91,8 @@ route::get('/latihan/{nama}/{telepon}/{jenis}/{barang}/{jumlah}/{pembayaran}', f
                 $harga = 20000000;
             }
         }
-        
-        
+
+
         elseif($jenis == "tv"){
             if ($namabarang == "toshiba") {
                 $harga = 5000000;
@@ -105,22 +106,22 @@ route::get('/latihan/{nama}/{telepon}/{jenis}/{barang}/{jumlah}/{pembayaran}', f
         }
 
         $total = $jumlah * $harga;
-        
+
         if ($total > 10000000) {
             $cashback = 500000;
         }else {
             $cashback = 0;
         }
 
-        
+
         if ($pembayaran == "transfer") {
             $potongan = 50000;
         }else {
             $potongan = 0;
         }
 
-        $totalbayar = $total - $potongan - $cashback; 
-    
+        $totalbayar = $total - $potongan - $cashback;
+
     return "Nama Pembeli :" . $nama . "<br>" .
     "Telepon : " . $telp . "<br><hr>".
     "Jenis Barang :" . $jenis . "<br>" .
@@ -129,8 +130,8 @@ route::get('/latihan/{nama}/{telepon}/{jenis}/{barang}/{jumlah}/{pembayaran}', f
     "Jumlah :" . $jumlah . "<br><hr>" .
     "Total : ". number_format($total) . "<br>" .
     "Cashback :". number_format($cashback) . "<br>".
-    "Pembayaran : " . $pembayaran . "<br>". 
-    "Potongan :". number_format($potongan) . "<br>" . 
+    "Pembayaran : " . $pembayaran . "<br>".
+    "Potongan :". number_format($potongan) . "<br>" .
     "Total Pembayaran :" . number_format($totalbayar)  ;
 });
 
